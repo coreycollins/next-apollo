@@ -1,11 +1,11 @@
 import Main from "../lib/layout";
-import Header from "../components/Header";
+import Login from "../components/Login";
 import withData from "../lib/apollo";
 
-export default withData(props => {
+export default props => {
   return (
     <Main>
-      <Header />
+      <Login />
     </Main>
   );
-});
+};

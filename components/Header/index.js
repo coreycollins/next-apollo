@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Container, LinkText } from "./styles";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+import styles from "./styles";
 
 const Header = () => {
   const router = useRouter();
@@ -9,31 +11,19 @@ const Header = () => {
   if (router) {
     const { pathname } = router;
     return (
-      <Container>
+      <div>
         <Link prefetch href="/">
-          <a>
-            <LinkText isActive={pathname === "/" && "is-active"}>Home</LinkText>
-          </a>
-        </Link>
-
-        <Link prefetch href="/about">
-          <a>
-            <LinkText isActive={pathname === "/about" && "is-active"}>
-              About
-            </LinkText>
-          </a>
+          <a>Root</a>
         </Link>
 
         <Link href="https://github.com/ads1018/next-apollo-example">
-          <a>
-            <LinkText>Github</LinkText>
-          </a>
+          <a>Github</a>
         </Link>
-      </Container>
+      </div>
     );
   } else {
     return null;
   }
 };
 
-export default Header;
+export default withStyles(styles)(Header);
